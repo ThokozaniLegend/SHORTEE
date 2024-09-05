@@ -2,9 +2,6 @@
 
 Welcome to **SHORTEE**, the ultimate URL shortener that simplifies long URLs into short, shareable links. This project is designed to automate URL management and provide users with comprehensive analytics for their shortened URLs.
 
-![Logo of SHORTEE](#)  
-(*Add your logo here*)
-
 ---
 
 ## **Table of Contents**
@@ -47,15 +44,6 @@ Welcome to **SHORTEE**, the ultimate URL shortener that simplifies long URLs int
 - **PHP** for server-side scripting
 - **MySQL** for data storage and management
 - **JavaScript** for client-side interaction and validation
-
----
-
-## **Architecture**
-
-This project is built using a **Model-View-Controller (MVC)** design pattern to ensure scalability, maintainability, and modularity.
-
-![System Architecture](#)  
-(*Add your architecture diagram here*)
 
 ---
 
@@ -157,8 +145,6 @@ Log in or register to start shortening URLs and tracking analytics!
 - **Scope Creep:** Clear and controlled project management processes are in place to avoid unplanned feature requests.
 - **Resource Constraints:** Contingency plans are set to ensure timely delivery even with resource limitations.
 
-For more information on risks and solutions, refer to the **[MVP Specification Document](#)**.  
-(*Add the link to your full document here*)
 
 ---
 
