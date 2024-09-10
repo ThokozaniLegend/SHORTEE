@@ -39,6 +39,9 @@ if (isset($_SESSION['user_id'])) {
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img id="logo" class="logo" src="images/logo 3.png" alt="Shortee Logo">
+    </div>
     <div class="container">
         <h1>Welcome to Shortee</h1>
         <h2>Your Ultimate URL Shortener</h2>

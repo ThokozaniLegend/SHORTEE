@@ -65,6 +65,9 @@ $conn->close();
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img id="logo" class="logo" src="images/logo 3.png" alt="Shortee Logo">
+    </div>
     <div class="container form-container">
         <h1>Login</h1>
         <form action="login.php" method="post">

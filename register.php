@@ -57,49 +57,19 @@ $conn->close();
         .error-message {
             color: red;
             text-align: center;
-            position: absolute;  /* Position relative to the form */
-            bottom: -60px;       /* Position it just below the form fields */
-            left: 0;
-            right: 0;
+            margin-top: 15px;
             font-size: 14px;
         }
 
         .form-container {
-            position: relative;  /* Container relative to its content */
-            width: 300px;        /* Adjust as needed */
-            padding-bottom: 40px; /* Space for the error message */
-            margin: 0 auto;      /* Center the form horizontally */
-        }
-
-        form {
-            position: relative;  /* Make the form a positioning context for the error */
-        }
-
-        input, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        p {
-            text-align: center;
+            position: relative;
         }
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img id="logo" class="logo" src="images/logo 3.png" alt="Shortee Logo">
+    </div>
     <div class="container form-container">
         <h1>Register</h1>
         <form action="register.php" method="post">

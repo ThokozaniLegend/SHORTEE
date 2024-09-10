@@ -1,19 +1,48 @@
-/* style.css */
+/* Global body styling */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    background-image: url('images/background image.png'); /* Add your image path */
+    background-image: url('images/bg 1.jpg'); /* Add your image path */
     background-size: cover; /* Ensures the image covers the entire page */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed; /* Keeps the background static while scrolling */
     background-position: center; /* Centers the background image */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
 }
 
+/* Page header styling */
+.page-header {
+    text-align: center; /* Center the text horizontally */
+    position: fixed; /* Make the header stay at the top */
+    top: 0; /* Align it to the top of the page */
+    width: 100%; /* Make it span the entire width */
+    background-color: #f1f1f1; /* Add a background color for visibility */
+    padding: 20px 0; /* Add some padding to give space around the text */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for a nice effect */
+    font-size: 1.5rem; /* Adjust font size for better visibility */
+}
+
+/* Center the logo at the top */
+.logo-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Updated logo styling */
+.logo {
+    height: 150px; /* Adjust logo height */
+    width: auto;   /* Maintain aspect ratio */
+    /* Removed border-radius for no circular shape */
+}
+
+/* Container styling */
 .container {
     text-align: center;
     background: #ffffff;
@@ -24,8 +53,12 @@ body {
     width: 100%;
     backdrop-filter: blur(10px); /* Optional: Adds a subtle blur effect for readability */
     background-color: rgba(255, 255, 255, 0.85); /* Slight transparency for the container */
+    margin-top: 20px; /* Adjust to reduce gap between header and form */
+    position: relative;
+    top: 50px; /* Ensure the form is not pushed too high when header is present */
 }
 
+/* Text and form styling */
 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -48,19 +81,28 @@ input[type="password"] {
 }
 
 button {
-    padding: 10px;
+    padding: 10px 20px; /* Increased padding for a more clickable area */
     font-size: 1rem;
-    background-color: #007bff;
+    background-color: #007bff; /* Blue background color */
     color: white;
-    border: none;
+    border: 2px solid #007bff; /* Add a border with the same color as the background */
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Smooth transition for hover effects */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: white; /* Switch background to white on hover */
+    color: #007bff; /* Change text color to blue */
+    border: 2px solid #007bff; /* Keep border color on hover */
 }
 
+button:focus {
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a subtle focus ring */
+}
+
+/* Table styling */
 table {
     width: 100%;
     margin-top: 20px;
@@ -80,6 +122,7 @@ th {
     background-color: #f2f2f2;
 }
 
+/* Additional element styling */
 p {
     margin-top: 20px;
     font-size: 1rem;

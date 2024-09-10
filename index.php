@@ -59,12 +59,18 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
+    <title>SHORTEE URL Shortener</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Logo centered at the top -->
+    <div class="logo-container">
+        <img id="logo" class="logo" src="images/logo 3.png" alt="Shortee Logo">
+    </div>
+
+    <!-- Main content inside container -->
     <div class="container">
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>! Shorten Your URL</h1>
+        <h1>Hello, <?php echo htmlspecialchars($_SESSION['username']); ?>! Shorten Your URL</h1>
 
         <form action="index.php" method="post">
             <input type="text" name="long_url" placeholder="Enter URL to shorten" required>
