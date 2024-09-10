@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 
 include 'db_connect.php';
 
+$error = ''; // Initialize an empty error variable
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -17,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $checkUser->get_result();
 
     if ($result->num_rows > 0) {
-        echo "User with this email already exists!";
+        $error = "User with this email already exists!"; // Set the error message
     } else {
         // Insert new user into the Users table
         $stmt = $conn->prepare("INSERT INTO Users (username, email, password) VALUES (?, ?, ?)");
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: index.php");
             exit();
         } else {
-            echo "Error: " . $stmt->error;
+            $error = "Error: " . $stmt->error;
         }
 
         $stmt->close();
@@ -51,15 +53,67 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .error-message {
+            color: red;
+            text-align: center;
+            position: absolute;  /* Position relative to the form */
+            bottom: -60px;       /* Position it just below the form fields */
+            left: 0;
+            right: 0;
+            font-size: 14px;
+        }
+
+        .form-container {
+            position: relative;  /* Container relative to its content */
+            width: 300px;        /* Adjust as needed */
+            padding-bottom: 40px; /* Space for the error message */
+            margin: 0 auto;      /* Center the form horizontally */
+        }
+
+        form {
+            position: relative;  /* Make the form a positioning context for the error */
+        }
+
+        input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container form-container">
         <h1>Register</h1>
         <form action="register.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Register</button>
+
+            <!-- Display the error message if it exists -->
+            <?php if (!empty($error)): ?>
+                <div class="error-message">
+                    <?php echo $error; ?>
+                </div>
+            <?php endif; ?>
         </form>
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
