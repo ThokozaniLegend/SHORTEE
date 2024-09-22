@@ -1,4 +1,4 @@
-![My animated logo](images/logo 3.png)
+ <img id="logo" class="logo" src="images/logo 3.png" alt="Shortee Logo">
 
 # **SHORTEE - URL Shortener Web Application**
 
