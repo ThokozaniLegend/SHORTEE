@@ -1,3 +1,5 @@
+![My animated logo](images/logo 3.png)
+
 # **SHORTEE - URL Shortener Web Application**
 
 Welcome to **SHORTEE**, the ultimate URL shortener that simplifies long URLs into short, shareable links. This project is designed to automate URL management and provide users with comprehensive analytics for their shortened URLs.
