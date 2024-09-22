@@ -32,7 +32,7 @@ Welcome to **SHORTEE**, a URL shortener designed to simplify URL management whil
 
 But, as the project developed, I realized it could be so much more than just a URL shortener. By integrating analytics, I wanted to empower users to gain insights into how their URLs are being interacted with — clicks, geographic locations, referral information — making SHORTEE a powerful tool for both personal and professional use.
 
-- **Deployed site:** [Visit SHORTEE Live](https://yourdeployedsite.com)
+- **Deployed site:** [Visit SHORTEE Live](https://youtu.be/IC_iD19PMcI)
 - **Final project blog article:** [Read Our Journey](https://medium.com/short-url-project)
 - **Author(s) LinkedIn:**  
   - [Thokozani Jan Mahlangu](https://www.linkedin.com/in/thokozani-mahlangu)
