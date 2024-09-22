@@ -142,7 +142,7 @@ http://localhost/short-url
 **Screenshots:**  
 Here's a preview of the SHORTEE dashboard:
 
-![SHORTEE Dashboard](images/dashboard.png]https://github.com/ThokozaniLegend/SHORTEE-Portfolio/blob/main/images/Screenshot%202024-09-10%20at%2022.27.20.png)
+![SHORTEE Dashboard](https://github.com/user-attachments/assets/f4812be1-453d-4e7b-85f1-d920b2ac11eb)
 
 
 ---
