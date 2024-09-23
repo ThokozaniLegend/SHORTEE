@@ -42,6 +42,27 @@ body {
     /* Removed border-radius for no circular shape */
 }
 
+/* Ensure long URLs don't break the table layout */
+td {
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 300px; /* Adjust this value based on your preferred width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table {
+    width: 100%; /* Make the table take full container width */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+
 /* Container styling */
 .container {
     text-align: center;
@@ -142,4 +163,28 @@ a:hover {
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
+}
+
+/* Ensure table cells wrap text */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 8px;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: left;
+    max-width: 300px; /* Adjust this value as needed */
+    overflow-wrap: break-word;
+}
+
+thead th {
+    background-color: #f2f2f2;
+}
+
+td {
+    white-space: normal;
 }

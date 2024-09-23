@@ -61,6 +61,36 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHORTEE URL Shortener</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+    function copyToClipboard(url) {
+        navigator.clipboard.writeText(url).then(() => {
+            alert("URL copied to clipboard!");
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+
+    // Function to fetch click counts using AJAX
+    function fetchClickCount(shortCode, elementId) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'fetch_click_count.php?short_code=' + shortCode, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                document.getElementById(elementId).innerText = response.click_count;
+            }
+        };
+        xhr.send();
+    }
+
+    // Call fetchClickCount for each row when the page loads
+    window.onload = function () {
+        document.querySelectorAll('.click-count').forEach(element => {
+            const shortCode = element.getAttribute('data-short-code');
+            fetchClickCount(shortCode, element.id);
+        });
+    };
+    </script>
 </head>
 <body>
     <!-- Logo centered at the top -->
@@ -77,32 +107,37 @@ $conn->close();
             <button type="submit">Shorten</button>
         </form>
 
-        <!-- Display the shortened URL -->
+        <!-- Display the shortened URL with a "Copy" button -->
         <?php if ($short_url): ?>
-            <p>Shortened URL: <a href="<?php echo $short_url; ?>"><?php echo $short_url; ?></a></p>
+            <p>
+                Shortened URL: <a href="<?php echo $short_url; ?>"><?php echo $short_url; ?></a>
+                <button onclick="copyToClipboard('<?php echo $short_url; ?>')">Copy</button>
+            </p>
         <?php endif; ?>
 
         <!-- Display URLs and their analytics in a table -->
         <?php if (!empty($urls)): ?>
             <h2>Your Shortened URLs</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Original URL</th>
-                        <th>Short Code</th>
-                        <th>Click Count</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($urls as $url): ?>
+            <div class="table-container">
+                <table>
+                    <thead>
                         <tr>
-                            <td><?php echo htmlspecialchars($url['long_url']); ?></td>
-                            <td><?php echo htmlspecialchars($url['short_code']); ?></td>
-                            <td><?php echo htmlspecialchars($url['click_count']); ?></td>
+                            <th>Original URL</th>
+                            <th>Short Code</th>
+                            <th>Click Count</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($urls as $url): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($url['long_url']); ?></td>
+                                <td><?php echo htmlspecialchars($url['short_code']); ?></td>
+                                <td id="click-count-<?php echo htmlspecialchars($url['short_code']); ?>" class="click-count" data-short-code="<?php echo htmlspecialchars($url['short_code']); ?>">Loading...</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         <?php endif; ?>
 
         <p><a href="logout.php">Logout</a></p>
